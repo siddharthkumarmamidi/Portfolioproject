@@ -1,13 +1,13 @@
 <!doctype html>
 <html lang="en">
   <head>
-    {% load staticfiles %}
+      {% load staticfiles %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v4.0.1">
-    <title>Album example · Bootstrap</title>
+    <title>Siddharth's Blog</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/album/">
 
@@ -46,7 +46,7 @@
   </head>
   <body>
     <header>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="{% url 'home' %}">Siddharth Kumar</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -61,7 +61,7 @@
         <a class="nav-link" href="{% static 'resume4.pdf' %}">Resume</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'allblogs' %}">
+        <a class="nav-link active" href="{% url 'allblogs' %}">
             Blog
         </a>
       </li>
@@ -71,36 +71,16 @@
 </header>
 
 <main role="main">
-  <section class="jumbotron text-center">
     <div class="container">
-      <h1>Hey, I'm Siddharth</h1>
-      <p class="lead text-muted">I'm here to make my django website.</p>
-      <p>
-        <a href="mailto:siddharthkumarmamidi@gmail.com" class="btn btn-primary my-2">Email Me</a>
-      </p>
-      <img src="{% static 'profilepicture.jpg' %}" width="400" height="400"/>
-    </div>
-  </section>
-
-  <div class="album py-5 bg-light">
-    <div class="container">
-      <div class="row">
-        {%for job in jobs.all %}
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <img class="card-img-top" src="{{job.image.url}}"/>
-            <div class="card-body">
-              <p class="card-text">{{job.summary}}</p>
-            </div>
-          </div>
+        <h1 class="text-center pt-3">{{ blog.title }}</h1>
+        <br/>
+        <p class="text-center">{{ blog.pretty_pub_date }}</p>
+           <center><img class="img-fluid "  src="{{blog.image.url}}" width="800" height="800"/></center>
+    </br>
+    </br>
+        <p>{{ blog.body }}</p>
         </div>
-        {% endfor %}
-      </div>
-    </div>
-  </div>
-
 </main>
-
 <footer class="text-muted">
   <div class="container text-center">
     <p>CopyRights Siddharth Kumar {% now "Y" %}</p>
